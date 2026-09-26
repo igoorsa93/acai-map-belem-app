@@ -51,7 +51,7 @@ export function filterBatedores(list, { q = '', chips = new Set(), sort = 'relev
     distanciaKm: userPos ? haversineKm(userPos, b) : null,
   }));
 
-  if (nq) out = out.filter((b) => normalize(`${b.nome} ${b.bairro} ${b.tags.join(' ')}`).includes(nq));
+  if (nq) out = out.filter((b) => normalize(`${b.nome} ${b.bairro} ${b.tags.join(' ')} ${(b.termos || []).join(' ')}`).includes(nq));
   if (chips.has('aberto')) out = out.filter((b) => b.aberto === true);
   if (chips.has('farinha')) out = out.filter((b) => b.tags.some((t) => /farinha/i.test(t)));
   if (chips.has('batedores')) out = out.filter((b) => b.tipo === 'Especializado');

@@ -18,20 +18,26 @@ function fromDashboard(e) {
   const tipo = TIPO_MAP(e.tipo);
   const tags = [tipo === 'Especializado' ? 'Especializado em açaí' : tipo === 'Misto' ? 'Açaí + outro segmento' : 'Outro estabelecimento'];
   if (e.categoria && e.categoria !== 'Não informado') tags.push(e.categoria);
+  const rawTel = (e.telefone || '').replace(/\D/g, '');
+  const telefone = rawTel ? (rawTel.startsWith('55') ? `+${rawTel}` : `+55${rawTel}`) : '';
+  const termos = e.termos ? e.termos.split('|').map((t) => t.trim()).filter(Boolean) : [];
+  let endereco = e.endereco || '';
+  if (endereco.startsWith(e.nome + ' - ')) endereco = endereco.slice(e.nome.length + 3);
   return {
     id: e.place_id,
     nome: e.nome,
     bairro: e.bairro,
     cidade: e.cidade || 'Belém',
-    endereco: e.endereco,
+    endereco,
     lat: e.lat, lon: e.lon,
     rating: e.rating || 0, reviews: e.reviews || 0,
-    preco: null, precoFaixa: null,   // ainda não coletado
-    horario: null,                   // ainda não coletado
+    preco: null, precoFaixa: null,
+    horario: null,
     tipoAcai: null,
     tipo, tags,
-    foto: null,                      // sem foto própria → placeholder da marca
-    telefone: e.telefone || '',
+    termos,
+    foto: null,
+    telefone,
     website: e.website || '',
     link: e.link || '',
     avaliacoes: [],
@@ -86,9 +92,13 @@ export const repo = {
   source,
   hasDashboard,
 
-  /** Lista exibida na bottom sheet / resultados. */
+  /** Lista exibida na bottom sheet / resultados (especializados primeiro, depois mistos, depois sem nota). */
   batedores() {
-    return source === 'dashboard' ? dashboardFeatured() : mockList;
+    if (source !== 'dashboard') return mockList;
+    const score = (b) => b.rating * Math.log10(b.reviews + 1);
+    const rank = (tipo) => dashboardList.filter((b) => b.tipo === tipo && b.rating > 0).sort((a, b) => score(b) - score(a));
+    const unrated = dashboardList.filter((b) => b.rating === 0);
+    return [...rank('Especializado'), ...rank('Misto'), ...unrated];
   },
 
   byId(id) {

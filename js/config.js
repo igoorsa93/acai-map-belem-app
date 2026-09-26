@@ -5,7 +5,8 @@ export const CONFIG = {
    * 'dashboard' → lista e estatísticas calculadas a partir de window.ACAI_DATA
    *               (data/dashboard_data.js). Também pode ser forçado via ?dados=dashboard
    */
-  dataSource: new URLSearchParams(location.search).get('dados') || 'mock',
+  dataSource: new URLSearchParams(location.search).get('dados') ||
+    (window.ACAI_DATA?.estabelecimentos?.length ? 'dashboard' : 'mock'),
 
   /** Os pontos reais do dashboard alimentam o mapa mesmo no modo mock (se carregados). */
   plotDashboardPointsOnMap: true,
