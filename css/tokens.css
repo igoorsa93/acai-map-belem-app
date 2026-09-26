@@ -1,0 +1,95 @@
+/* =========================================================
+   Açaí Map Belém — Design Tokens
+   ========================================================= */
+:root {
+  /* Cores — marca */
+  --c-night: #14092B;          /* fundo escuro (mapa / header) */
+  --c-night-2: #1E0F3B;        /* borda do gradiente */
+  --c-acai: #39106E;           /* primária */
+  --c-acai-600: #4C1D95;       /* clusters / pills */
+  --c-acai-500: #6B21A8;       /* clusters / pill ativa */
+  --c-acai-300: #A78BFA;
+  --c-acai-100: #EDE4FB;       /* badges roxo claro */
+  --c-acai-50: #F4EFFC;        /* input da busca */
+  --c-lime: #B2F026;           /* accent / CTA */
+  --c-lime-glow: rgba(178, 240, 38, 0.45);
+  --c-on-lime: #0B0A12;
+
+  /* Status */
+  --c-open-bg: #E8F8E3;
+  --c-open-fg: #1F7A1F;
+  --c-open-dot: #36B03A;
+  --c-closed-bg: #FDECEC;
+  --c-closed-fg: #B42318;
+  --c-star: #F9C416;
+
+  /* Superfícies (light) */
+  --c-white: #FFFFFF;
+  --c-surface: #F9FAFB;
+  --c-chip: #F3F4F6;
+  --c-border: #E5E7EB;
+  --c-text: #111827;
+  --c-text-2: #6B7280;
+  --c-text-3: #9CA3AF;
+  --c-ink: #120A24;            /* títulos (preto arroxeado) */
+
+  /* Tipografia */
+  --font: 'Plus Jakarta Sans', 'Inter', 'SF Pro Display', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-heavy: 800;
+
+  --fs-11: 0.6875rem;
+  --fs-12: 0.75rem;
+  --fs-13: 0.8125rem;
+  --fs-14: 0.875rem;
+  --fs-15: 0.9375rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-28: 1.75rem;
+
+  /* Raio */
+  --r-8: 8px;
+  --r-12: 12px;
+  --r-16: 16px;
+  --r-20: 20px;
+  --r-24: 24px;
+  --r-sheet: 32px;
+  --r-pill: 999px;
+
+  /* Sombras */
+  --sh-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --sh-float: 0 10px 30px rgba(20, 9, 43, 0.18);
+  --sh-nav: 0 -6px 24px rgba(20, 9, 43, 0.08);
+  --sh-sheet: 0 -12px 32px rgba(0, 0, 0, 0.18);
+
+  /* Espaçamento */
+  --sp-4: 0.25rem;
+  --sp-8: 0.5rem;
+  --sp-12: 0.75rem;
+  --sp-16: 1rem;
+  --sp-20: 1.25rem;
+  --sp-24: 1.5rem;
+
+  /* Layout */
+  --app-max: 480px;
+  --nav-h: 72px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --nav-total: calc(var(--nav-h) + var(--safe-bottom));
+
+  /* Camadas */
+  --z-map: 1;
+  --z-overlay: 100;
+  --z-sheet: 200;
+  --z-float: 300;
+  --z-modal: 1050;
+  --z-nav: 999;
+  --z-toast: 1100;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}

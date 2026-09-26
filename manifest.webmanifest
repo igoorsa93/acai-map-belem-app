@@ -1,0 +1,16 @@
+{
+  "name": "Açaí Map Belém",
+  "short_name": "Açaí Map",
+  "description": "Encontre os melhores batedores de açaí de Belém.",
+  "lang": "pt-BR",
+  "start_url": "./#/explorar",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#14092B",
+  "theme_color": "#14092B",
+  "icons": [
+    { "src": "assets/icons/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "assets/logo-mark.svg", "sizes": "48x48", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
