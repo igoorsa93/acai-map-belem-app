@@ -3,6 +3,7 @@ import { CONFIG } from '../config.js';
 import { MOCK_BATEDORES, MOCK_STATS } from './mock.js';
 
 const RAW = window.ACAI_DATA || null;
+const PHOTOS = window.ACAI_PHOTOS || {};
 const hasDashboard = !!RAW?.estabelecimentos?.length;
 const source = CONFIG.dataSource === 'dashboard' && hasDashboard ? 'dashboard' : 'mock';
 
@@ -36,7 +37,7 @@ function fromDashboard(e) {
     tipoAcai: null,
     tipo, tags,
     termos,
-    foto: null,
+    foto: PHOTOS[e.place_id] || null,
     telefone,
     website: e.website || '',
     link: e.link || '',

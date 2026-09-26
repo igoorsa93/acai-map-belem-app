@@ -36,6 +36,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
   <!-- Base real coletada (window.ACAI_DATA). Opcional: o app funciona só com o mock. -->
   <script src="data/dashboard_data.js"></script>
+  <!-- Fotos baixadas pelo script tools/fetch-photos.mjs (place_id → caminho). -->
+  <script src="data/photos.js" onerror="window.ACAI_PHOTOS={}"></script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
